@@ -2,13 +2,14 @@
     <div id="app">
         <div class="left" style="width: 20%;height: 100%;position: fixed">
             <el-scrollbar style="height: 100%">
-                <el-tree :data="data" :props="defaultProps" lazy :load="handleNodeClick" @node-click="handleNodeClick1"></el-tree>
+                <el-tree :data="data" :props="defaultProps" lazy :load="handleNodeClick"
+                         @node-click="handleNodeClick1"></el-tree>
             </el-scrollbar>
         </div>
         <div class="right" style="margin-left: 20%;padding: 10px">
             <div v-for="(file,i) in files" :key="'file_'+i" class="item">
-                <a :href="'http://localhost:8000/?p='+file">
-                    <img :src="'http://localhost:8000/?p='+file" />
+                <a :href="serverUrl+file">
+                    <img :src="serverUrl+file"/>
                 </a>
                 <br/>
             </div>
@@ -23,6 +24,7 @@
         name: 'App',
         data() {
             return {
+                serverUrl: "http://localhost:8000/?p=",
                 data: [],
                 defaultProps: {
                     label: 'label',
@@ -56,12 +58,6 @@
                     this.files = res.data.files
                 })
             },
-
-            fileclick(file) {
-                console.log(file)
-                window.open("http://localhost:8000/?p=" + file)
-            },
-
         }
     }
 </script>
