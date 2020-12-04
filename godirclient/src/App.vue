@@ -47,12 +47,12 @@
                         nodes.push({label: dir, children: []})
                     })
                     resolve(nodes)
-                    this.files = res.data.files
                 })
             },
             handleNodeClick1(data) {
                 console.log(data.label)
                 this.thisPath = data
+                this.files=[]
 
                 request.get('/dirserv/', {params: {p: data.label}}).then(res => {
                     this.files = res.data.files
