@@ -1,0 +1,1 @@
+go run godirserver/app.go "D:\data\git\fuliimages2"
