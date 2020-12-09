@@ -7,6 +7,7 @@
 ### Server
 ```
 go run app.go "your image folder"
+如果不指定folder则默认为当前路径
 ```
 
 ### Client
